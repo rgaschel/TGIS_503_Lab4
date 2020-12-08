@@ -1,0 +1,6 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-122.28060406910113,47.21875399810084],[-122.31359981718653,47.167476150033856]]},"properties":{"FID_1":3,"ELTT":1.29999995,"NISQ_WHITE":"N","TIME_ZONE":"C","SHAPE_Leng":20422.7984488}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-122.2659077594631,47.21783062735363],[-122.21561031872012,47.226396822310384]]},"properties":{"FID_1":4,"ELTT":1.10000002,"NISQ_WHITE":"N","TIME_ZONE":"C","SHAPE_Leng":12882.7906215}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-122.36174548149313,47.1955916561644],[-122.30936767946787,47.231799009222534]]},"properties":{"FID_1":11,"ELTT":1.5,"NISQ_WHITE":"N","TIME_ZONE":"C-D","SHAPE_Leng":18543.1746377}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-122.45812343371834,46.87973015550047],[-122.50188735666116,46.85891316210672]]},"properties":{"FID_1":16,"ELTT":2,"NISQ_WHITE":"Y","TIME_ZONE":"C-D","SHAPE_Leng":13321.1795316}}
+]}

@@ -1,0 +1,11 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-122.08543904470753,47.07152891696858],[-122.0229036294255,47.08824185975638]]},"properties":{"FID_1":2,"ELTT":0.2,"NISQ_WHITE":"N","TIME_ZONE":"A","SHAPE_Leng":16730.2152584}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-122.18189440135978,46.98803501257741],[-122.16763782538722,46.997430748001236]]},"properties":{"FID_1":5,"ELTT":0.2,"NISQ_WHITE":"N","TIME_ZONE":"A","SHAPE_Leng":4939.58045355}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-122.16364785328312,47.10365898136868],[-122.14663188522151,47.088110556006214]]},"properties":{"FID_1":6,"ELTT":0.5,"NISQ_WHITE":"N","TIME_ZONE":"A-B","SHAPE_Leng":7079.5876926}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-122.03344213401044,47.1118000756212],[-122.08952405844339,47.0763593957779]]},"properties":{"FID_1":8,"ELTT":0.30000001,"NISQ_WHITE":"N","TIME_ZONE":"A","SHAPE_Leng":19031.7385447}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-122.07330224656236,46.93429209813349],[-122.04927964680122,46.94204226486978]]},"properties":{"FID_1":9,"ELTT":0,"NISQ_WHITE":"N","TIME_ZONE":"A","SHAPE_Leng":6633.16323655}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-121.97468660301105,46.9836361807866],[-121.96102298130289,47.004860468707946]]},"properties":{"FID_1":10,"ELTT":0,"NISQ_WHITE":"N","TIME_ZONE":"A","SHAPE_Leng":8458.38361254}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-122.17626592296763,47.07394104948936],[-122.20933717895971,47.06969469252101]]},"properties":{"FID_1":13,"ELTT":0.5,"NISQ_WHITE":"N","TIME_ZONE":"A-B","SHAPE_Leng":8384.97099586}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-122.27561597681195,46.780289009353105],[-122.28653750465415,46.77076383935896]]},"properties":{"FID_1":14,"ELTT":1,"NISQ_WHITE":"Y","TIME_ZONE":"A-B","SHAPE_Leng":4422.06176835}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-121.79255209713503,47.18468522667135],[-121.78778510595755,47.15840995932689]]},"properties":{"FID_1":17,"ELTT":1,"NISQ_WHITE":"Y","TIME_ZONE":"A-B","SHAPE_Leng":9656.49344006}}
+]}

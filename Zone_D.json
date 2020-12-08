@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-122.43735587538995,47.26449693529733],[-122.41506385266163,47.2803274601385]]},"properties":{"FID_1":7,"ELTT":1.79999995,"NISQ_WHITE":"N","TIME_ZONE":"D","SHAPE_Leng":7997.88319908}}
+]}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Lab 4</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+<style>
+	body {
+		margin: 10px;
+		padding: 10px;
+		background-image: linear-gradient(#c4b3af,#dad5d3,#e0dcdb); }
+		@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap');
+		h1{
+			font-family: 'Cabin', sans-serif;
+			font-size: 3em;
+		}
+		p{
+			font-family: 'Cabin', sans-serif;
+			font-size: 1em;
+		}
+
+		#map { height: 80vh;
+					}
+		#map2 { height: 80vh;
+					}
+</style>
+</head>
+<body>
+	<h1 style= "text-align:center">Lahar Hazards of Mount Rainier </h1>
+	<p> According to the <a href="https://www.usgs.gov/natural-hazards/volcano-hazards/lahars-move-rapidly-down-valleys-rivers-concrete"target="_blank"> USGS</a> The Lahar, an Indonesian term that describes a hot or cold mixture of water and rock fragments which flow down slopes of volcanoes.  Lahars typically occur on or near stratovolcanoes anc can occur with or without a volcanic eruption.  It is important to study these events, their likelihood, and severity, as these events tend to cause serious economic and life altering harm to the landscape.  A <a href="https://www.dnr.wa.gov/Publications/ger_ic113_mt_rainier_lahar_hazards.pdf"target="_blank">2012 study</a> by the Washington State Department of Natural Resources estimates an overly conservative property loss estimate for a large lahar in the Puyallup River lahar zone at approximately 13 billion dollars. The below video explains the need for further study and preparedness in region surrounding Mt. Rainier. </p>
+<div>
+		<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/ZI_bGupGLng" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </p>
+</div>
+		<style>
+		#menu {
+		background: #377a38;
+		position: absolute;
+		z-index: 1;
+		top: 625px;
+		right: 20px;
+		border-radius: 3px;
+		width: 120px;
+		border: 1px solid rgba(0, 0, 0, 0.4);
+		font-family: 'Open Sans', sans-serif;
+		}
+
+		#menu a {
+		font-size: 13px;
+		color: #6eb858;
+		display: block;
+		margin: 0;
+		padding: 0;
+		padding: 10px;
+		text-decoration: none;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+		text-align: center;
+		}
+
+		#menu a:last-child {
+		border: none;
+		}
+
+		#menu a:hover {
+		background-color: #f8f8f8;
+		color: #404040;
+		}
+
+		#menu a.active {
+		background-color: #6eb858;
+		color: #ffffff;
+		}
+
+		#menu a.active:hover {
+		background: #3074a4;
+		}
+
+		</style>
+<nav id="menu"></nav>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+<link
+rel="stylesheet"
+href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+type="text/css"
+/>
+<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+<div id="map"></div>
+<script>
+		mapboxgl.accessToken = 'pk.eyJ1Ijoicmdhc2NoZWwiLCJhIjoiY2toY25oNjkzMDQ3ODJyc2I1YWoyczk2bCJ9.pMf2mjeJHvfkdPM7jEAFCg';
+			var map = new mapboxgl.Map({
+			container: 'map',
+			style: 'mapbox://styles/mapbox/streets-v11',
+			center: [-121.763031, 46.851269],
+			zoom: 8.5
+				});
+				map.on('load', function(){
+				 map.addSource('Hazard_1', {
+							 "type": "geojson",
+							 "data": "Volcanic_Hazards_Case_1.json"
+					 });
+					 map.addLayer({
+						 "id":"Case 1",
+						 "type":"fill",
+						 "source":"Hazard_1",
+						 "layout": {
+							 'visibility': 'visible'
+						 },
+						 "paint":{
+							 "fill-color": "red",
+							 "fill-opacity": 0.4
+						 }
+					 });
+			 });
+			 map.on('load', function(){
+				map.addSource('Hazard_2', {
+							"type": "geojson",
+							"data": "Volcanic_Hazards_Case_2.json"
+					});
+					map.addLayer({
+						"id":"Case 2",
+						"type":"fill",
+						"source":"Hazard_2",
+						"layout": {
+							'visibility': 'visible'
+						},
+						"paint": {
+						      "fill-color": "yellow",
+									"fill-opacity": 0.5
+}
+					});
+			});
+			map.on('load', function(){
+			 map.addSource('Hazard_3', {
+						 "type": "geojson",
+						 "data": "Volcanic_Hazards_Case_3.json"
+				 });
+				 map.addLayer({
+					 "id":"Case 3",
+					 "type":"fill",
+					 "source":"Hazard_3",
+					 "layout": {
+						 'visibility': 'visible'
+					 },
+					 "paint":{
+						 "fill-color": "green",
+						 "fill-opacity": 0.5
+					 }
+				 });
+		 });
+		 // enumerate ids of the layers
+		 var toggleableLayerIds = ['Case 1', 'Case 2', 'Case 3'];
+
+		 // set up the corresponding toggle button for each layer
+		 for (var i = 0; i < toggleableLayerIds.length; i++) {
+		 	var id = toggleableLayerIds[i];
+
+		 var link = document.createElement('a');
+		 	link.href = '#';
+		 	link.className = 'active';
+		 	link.textContent = id;
+
+		 link.onclick = function (e) {
+		 	var clickedLayer = this.textContent;
+		 	e.preventDefault();
+		 	e.stopPropagation();
+
+		 var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+		 // toggle layer visibility by changing the layout object's visibility property
+		 if (visibility === 'visible') {
+		 map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+		 	this.className = '';
+		 	} else {
+		 	this.className = 'active';
+		 	map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+		 	}
+		 	};
+
+		 var layers = document.getElementById('menu');
+		 	layers.appendChild(link);
+		 	}
+		 map.addControl(
+		 	new MapboxGeocoder({
+		 	accessToken: mapboxgl.accessToken,
+		 	mapboxgl: mapboxgl
+		 	})
+		 	);
+
+</script>
+
+<div>
+<p> The above map shows inundation zones for various cases of lahar type events.  Below describes the characteristics and general rate of reoccurence, provided by <a href="https://www.codepublishing.com/WA/PierceCounty/html/PierceCounty18E/PierceCounty18E60.html"target="_blank"> Pierce County Code </a>.  This map allows you to search addresses of interest and select specific lahar inundation zone case types to see how that location may be affected by specific lahar flow cases originating from Mt. Rainier.
+<p> 1.    <b>Inundation Zone for Case I Lahars</b>. Areas that could be affected by cohesive lahars that originate as enormous avalanches of weak chemically altered rock from the volcano. Case I lahars can occur with or without eruptive activity. The average reoccurrence rate for Case I lahars on Mount Rainier is about 500 to 1,000 years. </p>
+
+<p>	2.    <b>Inundation Zone for Case II Lahars</b>. Areas that could be affected by relatively large non-cohesive lahars, which most commonly are caused by the melting of snow and glacier ice by hot rock fragments during an eruption, but which can also have a non-eruptive origin. The average time interval between Case II lahars from Mount Rainier is near the lower end of the 100 to 500 year range, making these flows analogous to the so-called "100-year flood" commonly considered in engineering practice.</p>
+
+<p> 3.    <b>Inundation Zone for Case III Lahars</b>. Areas that could be affected by moderately large debris avalanches or small non-cohesive lahars, glacial outburst floods, or other types of debris flow, all of non-eruptive origin. The average time interval between Case III lahars at Mount Rainier is about 1 to 100 years. </p>
+</div>
+
+<!--Lahar Travel Time Map-->
+		<div>
+	<h1 style= "text-align:center"> Lahar Travel Time</h1>
+<div id='map2'</div>
+	<script>
+		mapboxgl.accessToken = 'pk.eyJ1Ijoicmdhc2NoZWwiLCJhIjoiY2toY25oNjkzMDQ3ODJyc2I1YWoyczk2bCJ9.pMf2mjeJHvfkdPM7jEAFCg';
+		var map2 = new mapboxgl.Map({
+		 container: 'map2',
+		 style: 'mapbox://styles/rgaschel/ckificzth4n1o19mkc20bxhfj',
+		 center: [-122.395866, 47.129016],
+		 zoom: 8.5
+
+		});
+
+		 map2.on('load', function(){
+			map2.addSource('Volcanic_Hazards', {
+						"type": "geojson",
+						"data": "Volcanic_Haz.json"
+				});
+				map2.addLayer({
+					"id":"VolHaz",
+					"type":"fill",
+					"source":"Volcanic_Hazards",
+					"paint": {
+						"fill-color": "orange",
+						"fill-opacity": 0.5
+					}
+				});
+		});
+		map2.on('load', function(){
+		 map2.addSource('Zone_A', {
+					 "type": "geojson",
+					 "data": "Zone_A.json"
+			 });
+			 map2.addLayer({
+				 "id":"Z_A",
+				 "type":"line",
+				 "source":"Zone_A",
+				 "paint": {
+					 "line-color": "#8b0000",
+					 "line-width": 5
+				 }
+			 });
+	 });
+	 map2.on('load', function(){
+		map2.addSource('Zone_B', {
+					"type": "geojson",
+					"data": "Zone_B.json"
+			});
+			map2.addLayer({
+				"id":"Z_B",
+				"type":"line",
+				"source":"Zone_B",
+				"paint": {
+					"line-color": "#b22222",
+					"line-width": 5
+				}
+			});
+	});
+	map2.on('load', function(){
+	 map2.addSource('Zone_C', {
+				 "type": "geojson",
+				 "data": "Zone_C.json"
+		 });
+		 map2.addLayer({
+			 "id":"Z_C",
+			 "type":"line",
+			 "source":"Zone_C",
+			 "paint": {
+				 "line-color": "#dc143c",
+				 "line-width": 5
+			 }
+		 });
+ });
+ map2.on('load', function(){
+	map2.addSource('Zone_D', {
+				"type": "geojson",
+				"data": "Zone_D.json"
+		});
+		map2.addLayer({
+			"id":"Z_D",
+			"type":"line",
+			"source":"Zone_D",
+			"paint": {
+				"line-color": "#cd5c5c",
+				"line-width": 5
+			}
+		});
+ });
+ map2.addControl(
+new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+mapboxgl: mapboxgl
+})
+);
+			</script>
+</div>
+<p>The above map describes lahar travel time for lahars estimated at 100,000,000 cubic feet of volume or more.  These travel time indicators are important to understand the amount of time lahar affected areas have to evacuate before the area is inundated by a lahar flow.  Search your address to see how much time you would need to evacuate to higher ground.  Understand that travel on foot to higher elevations is advised during such events.  The following corresponding color coded explains the time travel intervals based on the position along the lahar flow area:</p>
+<p style= "color:#8b0000;">1.    Travel Time Zone A.</p>
+
+	<p>a.    Travel Time Zone A on the Nisqually and White River systems is that area within an estimated one-hour travel distance from the source of the event.</p>
+
+	<p>b.    Travel Time Zone A on the Puyallup and Carbon River systems is that area within an estimated one-half hour travel distance from the point where the Acoustic Flow Monitor (AFM) alarm is sounded. </p>
+
+<p style= "color:#b22222;">2.    Travel Time Zone B.</p>
+
+	<p>a.    Travel Time Zone B on the Nisqually and White River systems is that area greater than an estimated one-hour travel distance and less than or equal to an estimated 1-1/2 hour travel distance from the source of the event.</p>
+
+	<p>b.    Travel Time Zone B on the Puyallup and Carbon River systems is that area greater than an estimated one-half hour travel distance and less than or equal to an estimated one-hour travel distance from the point where the AFM alarm is sounded.</p>
+
+<p style= "color:#dc143c;">3.    Travel Time Zone C.</p>
+
+	<p>a.    Travel Time Zone C on the Nisqually and White River systems is that area greater than an estimated 1-1/2 hour travel distance and less than or equal to an estimated two-hour travel distance from the source of the event.</p>
+
+	<p>b.    Travel Time Zone C on the Puyallup and Carbon River systems is that area greater than an estimated one-hour travel distance and less than or equal to a 1-1/2 hour travel distance from the point where the AFM alarm is sounded.</p>
+
+<p style= "color:#cd5c5c;">4.    Travel Time Zone D.</p>
+
+	<p>a.    Travel Time Zone D on the Nisqually and White River systems is that area greater than an estimated two-hour travel distance from the source of the event.</p>
+
+	<p>b.    Travel Time Zone D on the Puyallup and Carbon River systems is that area greater than an estimated 1-1/2 hour travel distance from the point where the AFM alarm is sounded.</p>
+	<p><a href="https://www.codepublishing.com/WA/PierceCounty/html/PierceCounty18E/PierceCounty18E60.html"target="_blank"> Time Travel Source</a></p>
+	<p> Map Data Sources: <a href="https://gisdata-piercecowa.opendata.arcgis.com/datasets/volcanic-hazards/data?geometry=-124.698%2C46.215%2C-119.528%2C47.529"target="_blank"> Volcanic Hazards</a>, <a href="https://gisdata-piercecowa.opendata.arcgis.com/datasets/volcanic-time-of-travel?geometry=-123.344%2C46.775%2C-120.759%2C47.430"target="_blank">Volcanic Time of Travel</a></p>
+
+	</body>
+	</html>
